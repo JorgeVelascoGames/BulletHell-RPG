@@ -4,11 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerPowerManager))]
-public class PlayerBrain : MonoBehaviour
+public class PlayerBrain : Singleton<PlayerBrain>
 {
-	private static PlayerBrain instance;
-	public static PlayerBrain Instance => instance;
-
 	private PlayerController playerController;
 	private PlayerPowerManager playerPowers;
 
@@ -17,9 +14,9 @@ public class PlayerBrain : MonoBehaviour
 	public PlayerPowerManager PlayerPowers => playerPowers;
 	#endregion
 
-	private void Awake()
+	protected override void Awake()
 	{
-		instance = this;
+		base.Awake();
 
 		playerController = GetComponent<PlayerController>();
 		playerController.SetUpBrain(this);

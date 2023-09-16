@@ -13,7 +13,12 @@ public class GameManagerValidation : MonoBehaviour
 	private void GameManagerValidate()
 	{
 		if (GameManager.Instance == null)
+		{
+			if (PlayerBrain.Instance != null)
+				Destroy(PlayerBrain.Instance.gameObject);
+
 			SceneManager.LoadScene("Init");
+		}
 
 	}
 }

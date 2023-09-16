@@ -25,7 +25,7 @@ namespace VelascoGames.StateMachine
 
 		public override void OnClickStartButton()
 		{
-			GameManager.Instance.SceneManager.GoToCardMatch();
+			GameManager.Instance.SceneManager.GoToGameSceneOne();
 		}
 		public override void OnClickNextButton()
 		{

@@ -26,7 +26,7 @@ namespace VelascoGames.StateMachine
 			currentState.StartState();
 		}
 
-		 public void Update()
+		public void Update()
 		{
 			if (currentState != null)
 			{

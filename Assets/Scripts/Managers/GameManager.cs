@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField][HideIf("corutineManager")] private CorutineManager corutineManager;
 	[SerializeField][HideIf("globalConfiguration")] private GlobalConfiguration globalConfiguration;
 	[SerializeField][HideIf("objectReferences")] private ReferenceManager objectReferences;
+	[SerializeField][HideIf("cameraController")] private CameraController cameraController;
 	#endregion
 
 	#region Public properties
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 	public CorutineManager CorutineManager => corutineManager;
 	public GlobalConfiguration Configuration => globalConfiguration;
 	public ReferenceManager ObjectReferences => objectReferences;
+	public CameraController CameraController => cameraController;
 	#endregion
 
 	#region Unity methods

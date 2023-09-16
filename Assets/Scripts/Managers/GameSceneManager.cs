@@ -7,25 +7,38 @@ using Sirenix.OdinInspector;
 public class GameSceneManager : MonoBehaviour
 {
 	[SerializeField] private string mainMenuScene;
-	[SerializeField] private string cardMatchScene;
-	[SerializeField] private string lobbyScene;
+	[SerializeField] private string gameSceneOne;
+	[SerializeField] private string gameSceneTwo;
 	[SerializeField] private string loadingScene;
 
 	[SerializeField] private float minLoadingTime = 2f;
 
+	public string SceneTransitionName { get; private set; }
+
 	private AsyncOperation asyncOperation;
+
+	public void SetTransitionName(string sceneTransitionName)
+	{
+		Debug.Log("AAA " + sceneTransitionName + " " + SceneTransitionName);
+		SceneTransitionName = sceneTransitionName;
+	}
 
 	public void GoToMainMenu()
 	{
 		StartCoroutine(LoadSceneAsync(mainMenuScene));
 	}
-	public void GoToLobby()
+	public void GoToGameSceneOne()
 	{
-		StartCoroutine(LoadSceneAsync(lobbyScene));
+		StartCoroutine(LoadSceneAsync(gameSceneOne));
 	}
-	public void GoToCardMatch()
+	public void GoToGameSceneTwo()
 	{
-		StartCoroutine(LoadSceneAsync(cardMatchScene));
+		StartCoroutine(LoadSceneAsync(gameSceneTwo));
+	}
+
+	public void GoToSceneByName(string newScene)
+	{
+		StartCoroutine(LoadSceneAsync(newScene));
 	}
 
 	private IEnumerator LoadSceneAsync(string sceneName)
